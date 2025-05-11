@@ -3,10 +3,12 @@ package com.three.recipingeventservicebe.event.controller;
 import com.three.recipingeventservicebe.common.dto.Response;
 import com.three.recipingeventservicebe.event.dto.CreateEventRequestDto;
 import com.three.recipingeventservicebe.event.dto.EventDetailResponseDto;
+import com.three.recipingeventservicebe.event.dto.EventSummaryResponseDto;
 import com.three.recipingeventservicebe.event.service.EventCommandService;
 import com.three.recipingeventservicebe.event.service.EventQueryService;
 import com.three.recipingeventservicebe.global.security.UserDetailsImpl;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,11 @@ public class EventController {
     @GetMapping("/{eventId}")
     public Response<EventDetailResponseDto> getEventDetail(@PathVariable String eventId) {
         return Response.ok(eventQueryService.getEventDetail(eventId));
+    }
+
+    @GetMapping
+    public Response<List<EventSummaryResponseDto>> getAllEventSummaries() {
+        return Response.ok(eventQueryService.getAllSummaries());
     }
 
     @PostMapping

@@ -2,8 +2,10 @@ package com.three.recipingeventservicebe.event.service;
 
 import com.three.recipingeventservicebe.event.domain.Event;
 import com.three.recipingeventservicebe.event.dto.EventDetailResponseDto;
+import com.three.recipingeventservicebe.event.dto.EventSummaryResponseDto;
 import com.three.recipingeventservicebe.event.repository.EventRepository;
 import com.three.recipingeventservicebe.global.exception.custom.EventNotFoundException;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,17 @@ public class EventQueryService {
                 event.getDisplayStartAt(),
                 event.getDisplayEndAt()
         );
+    }
+
+    public List<EventSummaryResponseDto> getAllSummaries() {
+        return eventRepository.findAll().stream()
+                .filter(event -> !event.isDeleted())
+                .map(event -> new EventSummaryResponseDto(
+                        event.getId(),
+                        event.getTitle(),
+                        event.getImages().getPreview()
+                ))
+                .toList();
     }
 }
 
