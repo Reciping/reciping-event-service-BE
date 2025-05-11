@@ -1,6 +1,7 @@
 package com.three.recipingeventservicebe.global.exception;
 
 import com.three.recipingeventservicebe.common.dto.ExceptionDto;
+import com.three.recipingeventservicebe.global.exception.custom.TimeOutLockException;
 import com.three.recipingeventservicebe.global.exception.custom.UserNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ExceptionDto> entityNotFoundException(final EntityNotFoundException e) {
         log.error("EntityNotFoundException: ", e);
         return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+
+    @ExceptionHandler(TimeOutLockException.class)
+    public ResponseEntity<ExceptionDto> timeOutLockException(final TimeOutLockException e) {
+        log.error("TimeOutLockException: ", e);
+        return createResponse(HttpStatus.REQUEST_TIMEOUT, e.getMessage());
     }
 
     @ExceptionHandler(Exception.class)
