@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class EventRequestDto {
+public class CreateEventRequestDto {
 
 }
