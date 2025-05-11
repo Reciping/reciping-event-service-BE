@@ -3,12 +3,14 @@ package com.three.recipingeventservicebe.event.domain;
 import jakarta.persistence.Id;
 import java.time.Instant;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "events")
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {

@@ -1,6 +1,7 @@
 package com.three.recipingeventservicebe.global.exception;
 
 import com.three.recipingeventservicebe.common.dto.ExceptionDto;
+import com.three.recipingeventservicebe.global.exception.custom.AccessDeniedException;
 import com.three.recipingeventservicebe.global.exception.custom.AlreadyParticipatedException;
 import com.three.recipingeventservicebe.global.exception.custom.EventClosedException;
 import com.three.recipingeventservicebe.global.exception.custom.EventNotFoundException;
@@ -51,6 +52,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ExceptionDto> eventClosedException(final EventClosedException e) {
         log.error("EventClosedException: ", e);
         return createResponse(HttpStatus.GONE, e.getMessage());
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity<ExceptionDto> accessDeniedException(final AccessDeniedException e) {
+        log.error("AccessDeniedException: ", e);
+        return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 
 
