@@ -1,8 +1,8 @@
 package com.three.recipingeventservicebe.event.repository;
 
 import com.three.recipingeventservicebe.event.domain.Event;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface EventRepository extends JpaRepository<Event, Long> {
+public interface EventRepository extends MongoRepository<Event, String> {
 
 }

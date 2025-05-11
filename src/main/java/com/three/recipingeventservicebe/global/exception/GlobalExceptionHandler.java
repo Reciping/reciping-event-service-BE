@@ -1,6 +1,9 @@
 package com.three.recipingeventservicebe.global.exception;
 
 import com.three.recipingeventservicebe.common.dto.ExceptionDto;
+import com.three.recipingeventservicebe.global.exception.custom.AlreadyParticipatedException;
+import com.three.recipingeventservicebe.global.exception.custom.EventClosedException;
+import com.three.recipingeventservicebe.global.exception.custom.EventNotFoundException;
 import com.three.recipingeventservicebe.global.exception.custom.TimeOutLockException;
 import com.three.recipingeventservicebe.global.exception.custom.UserNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,13 +20,19 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ExceptionDto> userNotFoundException(final UserNotFoundException e) {
         log.error("UserNotFoundException: ", e);
-        return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+        return createResponse(HttpStatus.NOT_FOUND, e.getMessage());
+    }
+
+    @ExceptionHandler(EventNotFoundException.class)
+    public ResponseEntity<ExceptionDto> eventNotFoundException(final EventNotFoundException e) {
+        log.error("EventNotFoundException: ", e);
+        return createResponse(HttpStatus.NOT_FOUND, e.getMessage());
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ExceptionDto> entityNotFoundException(final EntityNotFoundException e) {
         log.error("EntityNotFoundException: ", e);
-        return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+        return createResponse(HttpStatus.NOT_FOUND, e.getMessage());
     }
 
     @ExceptionHandler(TimeOutLockException.class)
@@ -31,6 +40,20 @@ public class GlobalExceptionHandler {
         log.error("TimeOutLockException: ", e);
         return createResponse(HttpStatus.REQUEST_TIMEOUT, e.getMessage());
     }
+
+    @ExceptionHandler(AlreadyParticipatedException.class)
+    public ResponseEntity<ExceptionDto> alreadyParticipatedException(final AlreadyParticipatedException e) {
+        log.error("AlreadyParticipatedException: ", e);
+        return createResponse(HttpStatus.CONFLICT, e.getMessage());
+    }
+
+    @ExceptionHandler(EventClosedException.class)
+    public ResponseEntity<ExceptionDto> eventClosedException(final EventClosedException e) {
+        log.error("EventClosedException: ", e);
+        return createResponse(HttpStatus.GONE, e.getMessage());
+    }
+
+
 
     @ExceptionHandler(Exception.class)
     ResponseEntity<ExceptionDto> exception(final Exception e) {
