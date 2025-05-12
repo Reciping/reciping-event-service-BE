@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/events/{eventId}/participate/first-come")
+@RequestMapping("api/v1/events/{eventId}/participate/first-come")
 public class FirstComeEventController {
 
     private final FirstComeParticipationService participationService;

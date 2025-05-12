@@ -1,4 +1,4 @@
-package com.three.recipingeventservicebe.event.service;
+package com.three.recipingeventservicebe.fefsevent.service;
 
 import com.three.recipingeventservicebe.event.domain.Event;
 import com.three.recipingeventservicebe.event.domain.EventType;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Slf4j(topic = "EventScheduler")
 @Component
 @RequiredArgsConstructor
-public class EventScheduler {
+public class FirstComeEventScheduler {
 
     private final EventRepository eventRepository;
 
@@ -36,6 +36,7 @@ public class EventScheduler {
             // 필요한 활성화 로직이 있다면 여기에 작성 (예: 상태변경, 캐시등록 등)
         }
     }
+
 
     private boolean isToday(Instant instant) {
         ZonedDateTime seoulTime = instant.atZone(ZoneId.of("Asia/Seoul"));

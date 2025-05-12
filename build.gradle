@@ -42,6 +42,8 @@ dependencies {
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
     // MongoDB
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    // WebClient
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
 }
 
