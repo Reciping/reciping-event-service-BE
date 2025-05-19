@@ -1,6 +1,6 @@
 package com.three.recipingeventservicebe.fefsevent.controller;
 
-import com.three.recipingeventservicebe.common.dto.Response;
+import com.three.recipingeventservicebe.common.Response;
 import com.three.recipingeventservicebe.fefsevent.service.FirstComeParticipationService;
 import com.three.recipingeventservicebe.global.security.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;

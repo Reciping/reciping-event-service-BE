@@ -1,10 +1,11 @@
 package com.three.recipingeventservicebe.global.exception;
 
-import com.three.recipingeventservicebe.common.dto.ExceptionDto;
+import com.three.recipingeventservicebe.common.ExceptionDto;
 import com.three.recipingeventservicebe.global.exception.custom.AccessDeniedException;
 import com.three.recipingeventservicebe.global.exception.custom.AlreadyParticipatedException;
 import com.three.recipingeventservicebe.global.exception.custom.EventClosedException;
 import com.three.recipingeventservicebe.global.exception.custom.EventNotFoundException;
+import com.three.recipingeventservicebe.global.exception.custom.NotValidBucketException;
 import com.three.recipingeventservicebe.global.exception.custom.TimeOutLockException;
 import com.three.recipingeventservicebe.global.exception.custom.UserNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
@@ -57,6 +58,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ExceptionDto> accessDeniedException(final AccessDeniedException e) {
         log.error("AccessDeniedException: ", e);
+        return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
+    }
+
+    @ExceptionHandler(NotValidBucketException.class)
+    public ResponseEntity<ExceptionDto> notValidBucketException(final NotValidBucketException e) {
+        log.error("NotValidBucketException: ", e);
         return createResponse(HttpStatus.BAD_REQUEST, e.getMessage());
     }
 

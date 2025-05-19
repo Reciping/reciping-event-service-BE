@@ -1,6 +1,6 @@
 package com.three.recipingeventservicebe.signupevent.controller;
 
-import com.three.recipingeventservicebe.common.dto.Response;
+import com.three.recipingeventservicebe.common.Response;
 import com.three.recipingeventservicebe.global.security.UserDetailsImpl;
 import com.three.recipingeventservicebe.signupevent.service.SignUpParticipationService;
 import lombok.RequiredArgsConstructor;

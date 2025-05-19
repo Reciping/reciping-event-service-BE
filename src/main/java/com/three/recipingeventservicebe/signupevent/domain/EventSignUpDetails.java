@@ -26,7 +26,9 @@ public class EventSignUpDetails {
     public void setButtonActivatedAt(Instant activatedAt) {
         this.buttonActivatedAt = activatedAt;
     }
+
     public boolean isDeleted() {
         return isDeleted;
     }
+
 }

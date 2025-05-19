@@ -40,6 +40,14 @@ public class Event {
 
     private Instant deletedAt;
     private boolean isDeleted;
+
+    public Instant getActiveStartAt() {
+        return activeStartAt;
+    }
+
+    public Instant getActiveEndAt() {
+        return activeEndAt;
+    }
 }
 
 
