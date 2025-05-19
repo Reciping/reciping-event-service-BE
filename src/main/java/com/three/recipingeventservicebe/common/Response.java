@@ -1,4 +1,4 @@
-package com.three.recipingeventservicebe.common.dto;
+package com.three.recipingeventservicebe.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

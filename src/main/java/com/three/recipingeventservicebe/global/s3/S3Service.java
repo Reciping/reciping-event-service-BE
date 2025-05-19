@@ -8,6 +8,8 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.three.recipingeventservicebe.global.exception.custom.NotValidBucketException;
 import java.io.IOException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +37,7 @@ public class S3Service implements FileUploadService {
             throw new NotValidBucketException("존재하지 않는 버킷입니다.");
         }
 
-        return "https://dccg5mv6uel89.cloudfront.net/" + keyName;
+        return URLDecoder.decode(amazonS3.getUrl(bucket, keyName).toString(), StandardCharsets.UTF_8);
     }
 
     @Override

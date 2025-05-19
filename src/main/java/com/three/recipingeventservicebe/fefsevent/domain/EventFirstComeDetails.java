@@ -20,10 +20,14 @@ public class EventFirstComeDetails {
 
     private boolean isCombinable; // 다른 이벤트와 중복 응모 가능 여부
 
-    private Instant buttonActivatedAt; // 버튼 활성화 시간 (프론트에서 버튼 노출 기준)
+    private Instant buttonActivatedAt;
 
     private Reward reward; // 리워드 정보 (포인트 or 쿠폰 등)
 
     private Instant createdAt;
     private Instant modifiedAt;
+
+    public void setButtonActivatedAt(Instant buttonActivatedAt) {
+        this.buttonActivatedAt = buttonActivatedAt;
+    }
 }

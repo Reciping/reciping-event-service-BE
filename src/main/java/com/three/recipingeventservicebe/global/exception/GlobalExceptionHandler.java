@@ -1,6 +1,6 @@
 package com.three.recipingeventservicebe.global.exception;
 
-import com.three.recipingeventservicebe.common.dto.ExceptionDto;
+import com.three.recipingeventservicebe.common.ExceptionDto;
 import com.three.recipingeventservicebe.global.exception.custom.AccessDeniedException;
 import com.three.recipingeventservicebe.global.exception.custom.AlreadyParticipatedException;
 import com.three.recipingeventservicebe.global.exception.custom.EventClosedException;
